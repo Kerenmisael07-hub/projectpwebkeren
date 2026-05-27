@@ -1,0 +1,95 @@
+BAHAN PRESENTASI DAN DEMO
+Sistem Rental Kendaraan
+
+1. Pembukaan
+Halo semuanya, pada presentasi kali ini saya akan menjelaskan hasil proyek saya, yaitu aplikasi Sistem Rental Kendaraan berbasis Laravel.
+Aplikasi ini dibuat untuk membantu proses pengelolaan kendaraan, customer, dan transaksi rental agar lebih rapi, cepat, dan mudah dipantau.
+
+2. Latar Belakang
+Sebelumnya, pencatatan rental kendaraan sering dilakukan secara manual sehingga rawan terjadi kesalahan data, duplikasi, dan sulit membuat laporan.
+Karena itu, saya membuat sistem ini agar proses administrasi bisa dilakukan secara terstruktur dari satu dashboard.
+
+3. Tujuan Aplikasi
+Tujuan utama dari aplikasi ini adalah:
+- memudahkan admin mengelola data kendaraan
+- memudahkan pendataan customer
+- mencatat transaksi rental dengan lebih cepat
+- menampilkan ringkasan data pada dashboard
+- menghasilkan bukti sewa dan laporan yang siap dicetak atau diekspor
+
+4. Fitur Utama
+Berikut fitur yang ada di aplikasi ini:
+- login, register, logout, dan forgot password
+- CRUD kendaraan
+- CRUD customer
+- CRUD rental
+- upload gambar kendaraan
+- dashboard statistik dan grafik
+- bukti sewa dalam bentuk PDF
+- export laporan rental ke Excel
+- pengaturan tampilan halaman home
+
+5. Teknologi yang Digunakan
+Proyek ini dibangun menggunakan:
+- Laravel sebagai framework utama
+- MySQL sebagai database
+- Blade sebagai tampilan
+- Bootstrap atau CSS custom untuk interface
+- Dompdf untuk generate PDF
+- Laravel Excel untuk export data ke Excel
+
+6. Alur Penggunaan Aplikasi
+Secara umum alur penggunaannya seperti ini:
+- admin login ke sistem
+- admin masuk ke dashboard untuk melihat ringkasan data
+- admin mengelola data kendaraan dan customer
+- admin membuat transaksi rental baru
+- sistem menampilkan bukti sewa
+- admin bisa mengecek laporan dan mengekspor data jika diperlukan
+
+7. Penjelasan Saat Demo
+Saat demo, saya bisa menjelaskan urutan berikut:
+
+7.1 Halaman Login
+Di bagian ini pengguna harus masuk terlebih dahulu sebelum mengakses fitur admin.
+Fungsinya untuk menjaga keamanan data dan membatasi akses hanya untuk pengguna yang berwenang.
+
+7.2 Dashboard
+Setelah login, pengguna masuk ke dashboard.
+Di sini tersedia ringkasan data penting seperti jumlah kendaraan, customer, dan transaksi rental, sehingga admin bisa langsung memantau kondisi sistem.
+
+7.3 Data Kendaraan
+Menu ini digunakan untuk menambah, mengubah, melihat, dan menghapus data kendaraan.
+Setiap kendaraan juga bisa disertai gambar agar informasi lebih jelas dan mudah dikenali.
+
+7.4 Data Customer
+Menu ini dipakai untuk menyimpan data pelanggan yang melakukan rental.
+Dengan data yang tersimpan, proses transaksi menjadi lebih cepat karena informasi customer tidak perlu diinput berulang-ulang.
+
+7.5 Data Rental
+Pada menu rental, admin dapat mencatat kendaraan yang disewa, customer yang memilih, tanggal sewa, durasi, dan total biaya.
+Bagian ini adalah inti dari sistem karena menjadi pusat proses transaksi.
+
+7.6 Bukti Sewa
+Setelah transaksi dibuat, sistem dapat menghasilkan bukti sewa dalam format PDF.
+Fitur ini berguna sebagai dokumentasi dan bukti resmi transaksi.
+
+7.7 Laporan
+Menu laporan digunakan untuk melihat rekap data rental dan mengekspor hasilnya ke Excel.
+Fitur ini memudahkan admin untuk membuat laporan harian, bulanan, atau kebutuhan administrasi lainnya.
+
+8. Kelebihan Sistem
+Beberapa kelebihan dari sistem ini adalah:
+- data lebih tertata dan mudah dicari
+- proses transaksi lebih cepat
+- laporan bisa dibuat otomatis
+- tampilan lebih user friendly
+- cocok untuk kebutuhan demo maupun pengembangan lebih lanjut
+
+9. Kesimpulan
+Dari proyek ini dapat disimpulkan bahwa sistem rental kendaraan yang dibuat sudah membantu proses pengelolaan data secara digital.
+Fitur yang tersedia sudah mencakup pengelolaan data, transaksi, bukti sewa, dan laporan, sehingga sistem ini dapat digunakan sebagai solusi sederhana untuk administrasi rental kendaraan.
+
+10. Penutup
+Sekian penjelasan dari saya.
+Terima kasih atas perhatian yang diberikan. Jika ada pertanyaan, saya siap menjelaskan lebih lanjut.
