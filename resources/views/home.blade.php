@@ -33,6 +33,7 @@
             color: var(--ink);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
@@ -92,6 +93,124 @@
         }
 
         @media (max-width: 820px) { .hero { grid-template-columns: 1fr; padding: 52px 0 48px; gap: 36px; } }
+
+        @media (max-width: 640px) {
+            .wrap { padding: 0 16px; }
+
+            nav { padding: 14px 0; }
+
+            .nav-inner {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            .logo-name { font-size: 17px; }
+
+            .hero {
+                padding: 36px 0 32px;
+                gap: 24px;
+            }
+
+            .hero-tag {
+                font-size: 10px;
+                letter-spacing: 0.1em;
+                margin-bottom: 18px;
+            }
+
+            .hero-title {
+                font-size: clamp(34px, 13vw, 48px);
+            }
+
+            .hero-desc {
+                margin-top: 16px;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .hc-top,
+            .hc-row,
+            .v-body,
+            .modal-head,
+            .modal-details,
+            .wa-block {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .hc-row {
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+
+            .vehicles-section,
+            .contact-section {
+                padding-top: 44px;
+                padding-bottom: 52px;
+            }
+
+            .vehicles-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                margin-bottom: 22px;
+            }
+
+            .carousel-nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .v-card,
+            .v-empty {
+                width: min(82vw, 280px);
+            }
+
+            .v-name {
+                font-size: 18px;
+            }
+
+            .v-desc {
+                font-size: 11px;
+            }
+
+            .v-bottom {
+                gap: 12px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .v-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-grid {
+                gap: 28px;
+            }
+
+            .c-item {
+                gap: 12px;
+            }
+
+            .c-item-label {
+                min-width: 84px;
+            }
+
+            .wa-block {
+                padding-top: 28px;
+                padding-bottom: 28px;
+            }
+
+            footer .wrap {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
 
         .hero-tag {
             display: inline-flex; align-items: center; gap: 7px;
@@ -216,6 +335,7 @@
         /* dots */
         .carousel-dots {
             display: flex; align-items: center; gap: 5px; margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .c-dot {
@@ -237,6 +357,7 @@
             display: flex; gap: 16px;
             transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform;
+            touch-action: pan-y;
         }
 
         /* ── VEHICLE CARD ── */
@@ -439,6 +560,28 @@
         }
 
         @media (max-width: 560px) { .modal-body { grid-template-columns: 1fr; } }
+
+        @media (max-width: 560px) {
+            .modal-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            #vehicle-modal-name {
+                font-size: 22px;
+            }
+
+            .modal-img {
+                border-right: none;
+                border-bottom: 1px solid var(--sand);
+                padding: 24px;
+            }
+
+            .modal-details {
+                gap: 18px;
+            }
+        }
 
         .modal-img {
             background: var(--paper);

@@ -20,8 +20,10 @@
     @stack('styles')
 </head>
 <body class="min-h-screen text-slate-800">
+    <div id="sidebarBackdrop" class="fixed inset-0 z-30 hidden bg-slate-950/30 backdrop-blur-sm lg:hidden" onclick="closeSidebar()"></div>
+
     <div class="flex min-h-screen">
-        <aside class="hidden w-72 shrink-0 flex-col border-r border-slate-200 bg-white/85 text-slate-800 lg:sticky lg:top-0 lg:flex lg:h-screen lg:overflow-y-auto">
+        <aside id="sidebarDrawer" class="fixed inset-y-0 left-0 z-40 flex w-72 shrink-0 -translate-x-full flex-col border-r border-slate-200 bg-white/95 text-slate-800 transition-transform duration-300 ease-out lg:sticky lg:top-0 lg:z-auto lg:h-screen lg:translate-x-0 lg:overflow-y-auto">
             <div class="border-b border-slate-200 px-6 py-6">
                 <div class="text-xs uppercase tracking-[0.35em] text-sky-700">User Panel</div>
                 <div class="mt-2 text-2xl font-extrabold text-slate-900">Sistem Rental Kendaraan</div>
@@ -57,13 +59,23 @@
                         <h1 class="text-xl font-bold text-slate-900">@yield('header', 'Sistem Rental Kendaraan')</h1>
                     </div>
 
-                    <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sm font-bold text-sky-800">
-                            {{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">User</p>
-                            <p class="text-sm font-semibold text-slate-700">{{ auth()->user()->name ?? 'Guest' }}</p>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="sidebarToggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-sky-300 hover:bg-sky-50 lg:hidden" aria-controls="sidebarDrawer" aria-expanded="false" onclick="toggleSidebar()" aria-label="Buka menu sidebar">
+                            <span class="flex flex-col items-center justify-center gap-1.5" aria-hidden="true">
+                                <span class="h-1 w-1 rounded-full bg-current"></span>
+                                <span class="h-1 w-1 rounded-full bg-current"></span>
+                                <span class="h-1 w-1 rounded-full bg-current"></span>
+                            </span>
+                        </button>
+
+                        <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sm font-bold text-sky-800">
+                                {{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">User</p>
+                                <p class="text-sm font-semibold text-slate-700">{{ auth()->user()->name ?? 'Guest' }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,5 +102,48 @@
             </main>
         </div>
     </div>
+
+    <script>
+        const sidebarDrawer = document.getElementById('sidebarDrawer');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        function openSidebar() {
+            sidebarDrawer.classList.remove('-translate-x-full');
+            sidebarBackdrop.classList.remove('hidden');
+            sidebarToggle?.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeSidebar() {
+            sidebarDrawer.classList.add('-translate-x-full');
+            sidebarBackdrop.classList.add('hidden');
+            sidebarToggle?.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function toggleSidebar() {
+            if (sidebarDrawer.classList.contains('-translate-x-full')) {
+                openSidebar();
+                return;
+            }
+
+            closeSidebar();
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !sidebarDrawer.classList.contains('-translate-x-full')) {
+                closeSidebar();
+            }
+        });
+
+        document.querySelectorAll('#sidebarDrawer a, #sidebarDrawer button[type="submit"]').forEach((item) => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    closeSidebar();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
